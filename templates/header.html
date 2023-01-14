@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Varadhan Elango</title>
+    <meta content="my portfolio website for my career development" name="description">
+    <meta content="" name="keywords">
+    <meta name="author" content="Varadhan E">
+
+    <!-- Favicons -->
+<!--    <link href="static/assets/img/favicon.png" rel="icon">-->
+    <link href="{{url_for('static', filename='assets/img/v-icon2.png')}}" rel="icon">
+<!--    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+    <link href="{{url_for('static', filename='assets/img/v-icon2.png')}}" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+<!--    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">-->
+<!--    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">-->
+<!--    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">-->
+<!--    <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">-->
+<!--    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">-->
+
+    <link href="{{url_for('static', filename='assets/vendor/aos/aos.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+<!--    <link href="static/assets/css/style.css" rel="stylesheet">-->
+    <link href="{{url_for('static', filename='assets/css/style.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======= Mobile nav toggle button ======= -->
+<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="d-flex flex-column">
+
+        <div class="profile">
+            <img alt="" class="img-fluid rounded-circle" src="{{url_for('static', filename='assets/img/Varadhan E_Photo.jpg')}}">
+            <h1 class="text-light"><a href="{{ url_for('home_page') }}">Varadhan Elango</a></h1>
+            <div class="social-links mt-3 text-center">
+                <a class="linkedin" href="https://www.linkedin.com/in/varadhancst/" target="_blank"><i
+                        class="bx bxl-linkedin"></i></a>
+                <a class="github" href="https://github.com/varadhancst" target="_blank"><i
+                        class="bx bxl-github"></i></a>
+                <a class="instagram" href="https://www.instagram.com/varadhan_elango/" target="_blank"><i
+                        class="bx bxl-instagram"></i></a>
+            </div>
+        </div>
+
+        <nav class="nav-menu navbar" id="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="{{ url_for('home_page') }}"><i class="bx bx-home"></i>
+                    <span>Home</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('home_page', _anchor='about') }}"><i
+                        class="bx bx-user"></i> <span>About</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('home_page', _anchor='skills') }}"><i
+                        class="bx bx-file-find"></i> <span>Skills</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('home_page', _anchor='resume') }}"><i
+                        class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('home_page', _anchor='project') }}"><i
+                        class="bx bx-book-content"></i> <span>Projects</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('home_page', _anchor='services') }}"><i
+                        class="bx bx-server"></i> <span>Services</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('home_page', _anchor='contact') }}"><i
+                        class="bx bx-envelope"></i> <span>Contact</span></a></li>
+
+                {% if current_user.id == 1: %}
+            <li><a class="nav-link scrollto" href="{{ url_for('resume') }}"><i class="bx bx-detail"></i>
+                    <span>Upload CV</span></a></li>
+            {% endif %}
+
+                {% if not current_user.is_authenticated: %}
+                <li><a class="nav-link scrollto" href="{{ url_for('login') }}"><i class="bx bx-log-in"></i>
+                    <span>Login</span></a></li>
+                <li><a class="nav-link scrollto" href="{{ url_for('register') }}"><i class="bx bx-food-menu"></i> <span>Register</span></a>
+                </li>
+                {% else: %}
+                <li><a class="nav-link scrollto" href="{{ url_for('logout') }}"><i class="bx bx-log-out"></i> <span>Log Out</span></a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header><!-- End Header -->
